@@ -29,4 +29,12 @@ describe('app routes', () => {
                 expect(res.body).toEqual( { name: 'red', hex: 'FF0000', r: 255, g: 0, b: 0 } )
             });
     });
+    
+    it('has a specfic color route', () => {
+        return request(app)
+            .get('/api/v1/colors/blue')
+            .then(res => {
+                expect(res.body).toEqual( { name: 'blue', hex: '0000FF', r: 0, g: 0, b: 255 } )
+            });
+    });
 });
